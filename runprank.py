@@ -34,7 +34,6 @@ def __safe_create_dir(dirname):
             return 0
         else:
             print(f"The dir {dirname} already exists, aborting its creation")
-            #exit(1)
             return 1
     except Exception as e:
         print(f"Error! Exception: {e}")
