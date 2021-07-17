@@ -27,7 +27,7 @@ The processDUDEz is a script to process data from the [DUDEz database](https://d
 
 ## Citing
 
-Unfortunately both scripts does not have a way to cite it... yet... But hopefully in the future they might!
+Unfortunately both scripts does not have a way to cite it... yet... But hopefully in the future it might!
 
 Although...
 
