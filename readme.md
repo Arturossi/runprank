@@ -68,7 +68,7 @@ Firstly put the runprank file in the same folder as your script and then call th
     "MeanShift": False,
     "MiniBatchKMeans": False,
     "OPTICS": False,
-    "SpectralClustering": False"
+    "SpectralClustering": False
   } - Dictionary of trues and falses of each implemented algorithm. The options are: AffinityPropagation, AgglomerativeClustering, Birch, DBSCAN, KMeans, MeanShift, MiniBatchKMeans, OPTICS, SpectralClustering
 - prank [string]
   DEFAULT: "" - p2rank file
