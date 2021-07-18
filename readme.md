@@ -74,6 +74,9 @@ Firstly put the runprank file in the same folder as your script and then call th
   DEFAULT: "" - p2rank file
 - threads [int]
   DEFAULT: 1 - Number of threads that the p2rank should use
+-  coordSystem  [string]  DEFAULT: "cartesian" - The coordinate system to be used. The options are cartesian, polar, spherical
+-  spacing      [float]   DEFAULT: 3.0         - Expansion size of the box in angstroms
+-  maxCutoff    [float]   DEFAULT: 0.5         - If the probability value from p2rank is above this value, the pocket WILL be considered as valid, even if its value is below the cutoff (use 1.0 to disable this feature)
 - verbose [bool]
   DEFAULT: False - Verbose mode on/off
 - debug [bool]
@@ -88,10 +91,9 @@ import runprank
 # This command will NOT run prank in sample.pdb, just cluster its results, only with Agglomerative Clustering and then output the results in the ./output folder
 run_prank("sample.pdb", "./output")
 
-# This command will run prank in sample.pdb, and will cluster its results using all supported algorithms and will generate files with statistics data (this is useful to perform benchmarks) to the ./output folder
-run_prank("sample.pdb", "./output", {"AffinityPropagation": True, "AgglomerativeClustering": True,"Birch": True, "DBSCAN": True, "KMeans": True, "MeanShift": True, "MiniBatchKMeans": True, "OPTICS": True, "SpectralClustering": True"}, "/path/to/prank", 1, False, True)
+# This command will run prank in sample.pdb, and will cluster its results using all supported algorithms and will generate files with statistics data (this is useful to perform benchmarks) to the ./output folder having an expansion size of the box of 3 Angstroms and a probaiblity maximum cutoff of 50%
+run_prank("sample.pdb", "./output", {"AffinityPropagation": True, "AgglomerativeClustering": True,"Birch": True, "DBSCAN": True, "KMeans": True, "MeanShift": True, "MiniBatchKMeans": True, "OPTICS": True, "SpectralClustering": True}, "/path/to/prank", 1, "polar", 3.0, 0.5, False, True)
 ```
-
 
 ## Changelog
 
@@ -110,6 +112,10 @@ run_prank("sample.pdb", "./output", {"AffinityPropagation": True, "Agglomerative
 	* Added probability filter
 	* Fixed a problem that caused a pocket to be split into more than one cluster, now a pocket should always be entirely inside the same cluster
 	* Minor bug fixes and optimizations
+
+* V 0.4
+  * Added the possibility to use different coordinate system cartesian, polar, spherical
+  * More parameters are exposed to the user
 
 ### processDUDEz
 
